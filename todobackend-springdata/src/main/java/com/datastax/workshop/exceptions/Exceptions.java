@@ -19,7 +19,7 @@ public class Exceptions {
     
     public Exceptions() {}
     
-    public Exceptions(String rundate, String errorcode, String timestamp, String eventtype, String firmroeid, String txnkey, String txnkey, String quantity, String price) {
+    public Exceptions(String rundate, String errorcode, String timestamp, String eventtype, String firmroeid, String txnkey, String quantity, String price) {
         this.rundate = rundate;
         this.errorcode = errorcode;
         this.timestamp = timestamp;

@@ -42,7 +42,10 @@ public class TodoEntity {
     private int order = 0;
     
     public TodoEntity(String title, int offset) {
-        this(UUID.randomUUID(), title, false, offset);
+        this.uid = UUID.randomUUID();
+        this.title = title;
+        this.completed = false;
+        this.order = offset;
     }
 
 }

@@ -20,25 +20,26 @@ import lombok.NoArgsConstructor;
 @Table(value = ExceptionsEntity.TABLENAME)
 public class ExceptionsEntity {
 
-    public static final String TABLENAME = "exceptions";
-    public static final String COLUMN_RUNDATE = "rundate";
-    public static final String COLUMN_ERRORCODE = "errorcode";
-    public static final String COLUMN_TIMESTAMP = "timestamp";
-    public static final String COLUMN_EVENTTYPE = "eventtype";
-    public static final String COLUMN_FIRMROEID = "firmroeid";
-    public static final String COLUMN_TXNKEY = "txnkey";
-    public static final String COLUMN_QUANTITY = "quantity";
-    public static final String COLUMN_PRICE = "price";
-    
+    public static String TABLENAME = "exceptions";
+    public static String COLUMN_RUNDATE = "rundate";
+    public static String COLUMN_ERRORCODE = "errorcode";
+    public static String COLUMN_TIMESTAMP = "timestamp";
+    public static String COLUMN_EVENTTYPE = "eventtype";
+    public static String COLUMN_FIRMROEID = "firmroeid";
+    public static String COLUMN_TXNKEY = "txnkey";
+    public static String COLUMN_QUANTITY = "quantity";
+    public static String COLUMN_PRICE = "price";
+
+
     @PrimaryKey
     @Column(COLUMN_RUNDATE)
     @CassandraType(type = Name.TEXT)
-    private String runDate;
+    private String rundate;
 
     @PrimaryKey
     @Column(COLUMN_ERRORCODE)
     @CassandraType(type = Name.TEXT)
-    private String errorcode = 0;
+    private String errorcode;
 
     @Column(COLUMN_TIMESTAMP)
     @CassandraType(type = Name.TEXT)
@@ -64,15 +65,19 @@ public class ExceptionsEntity {
     @CassandraType(type = Name.TEXT)
     private String price;
 
-    
-    public ExceptionsEntity(String runDate, int errorCode, Timestamp timeStamp, String eventType, String firmRoeId,
-     String txnKey, String quantity, String price){
-        this(runDate, errorCode, timeStamp, eventType, firmRoeId, txnKey, quantity, price);
 
-
-    
+    public ExceptionsEntity(String rundate, String errorcode, String timestamp, String eventtype, String firmroeid,
+     String txnkey, String quantity, String price){
+        this.rundate = rundate;
+        this.errorcode = errorcode;
+        this.timestamp = timestamp;
+        this.eventtype = eventtype;
+        this.firmroeid = firmroeid;
+        this.txnkey = txnkey;
+        this.quantity = quantity;
+        this.price = price;
     }
- 
+
 
 
 }

@@ -9,6 +9,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Stream;
@@ -45,11 +47,13 @@ public class ExceptionsRestController {
 
 
      @GetMapping
-    public Stream<Todo> findAll(HttpServletRequest req) {
-        return repo.findAll().stream()
-                   .map(TodoRestController::mapAsTodo)
-                   .map(t -> t.setUrl(req));
+    public List<ExceptionsEntity> findAll(HttpServletRequest req) {
+         List<ExceptionsEntity> exceptions = new ArrayList<>();
+         repo.findAll().forEach(e->exceptions.add(e));
+         return exceptions;
+
     }
+
 
 }
 
